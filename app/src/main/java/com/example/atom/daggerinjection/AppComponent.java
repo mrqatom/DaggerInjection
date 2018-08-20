@@ -3,6 +3,7 @@ package com.example.atom.daggerinjection;
 import android.app.Application;
 
 import com.example.atom.daggerinjection.main.MainActivityModule;
+import com.example.atom.sample.DiDemoModule;
 
 import dagger.BindsInstance;
 import dagger.Component;
@@ -16,7 +17,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(modules = {
         AndroidSupportInjectionModule.class,
         AppModule.class,
-        MainActivityModule.class})
+        MainActivityModule.class,
+        DiDemoModule.class})
 public interface AppComponent {
 
     void inject(MyApplication app);

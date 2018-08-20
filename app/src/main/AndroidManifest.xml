@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".main.MainActivity">
+
+        </activity>
+        <activity android:name="com.example.atom.sample.DiDemoActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
