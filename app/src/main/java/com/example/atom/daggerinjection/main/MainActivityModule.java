@@ -18,7 +18,7 @@ public abstract class MainActivityModule {
     abstract MainView provideMainView(MainActivity mainActivity);
 
     @Provides
-    MainPresenter provideMainPresenter(MainView mainView, ApiService apiService) {
+    static MainPresenter provideMainPresenter(MainView mainView, ApiService apiService) {
         return new MainPresenter(mainView, apiService);
     }
 }

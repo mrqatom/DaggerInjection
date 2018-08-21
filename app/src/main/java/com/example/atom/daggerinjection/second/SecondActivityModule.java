@@ -17,7 +17,7 @@ public abstract class SecondActivityModule {
     abstract SecondView provideSecondView(SecondActivity SecondActivity);
 
     @Provides
-    SecondPresenter provideSecondPresenter(SecondView SecondView, ApiService apiService) {
+    static SecondPresenter provideSecondPresenter(SecondView SecondView, ApiService apiService) {
         return new SecondPresenter(SecondView, apiService);
     }
 }
