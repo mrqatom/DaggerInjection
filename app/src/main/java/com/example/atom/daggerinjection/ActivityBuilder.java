@@ -1,22 +1,21 @@
 package com.example.atom.daggerinjection;
 
-import android.app.Activity;
 
 import com.example.atom.daggerinjection.main.MainActivity;
-import com.example.atom.daggerinjection.main.MainActivityComponent;
+import com.example.atom.daggerinjection.main.MainActivityModule;
+import com.example.atom.daggerinjection.second.SecondFragmentProvider;
+import com.example.atom.daggerinjection.second.SecondActivity;
+import com.example.atom.daggerinjection.second.SecondActivityModule;
 
-import dagger.Binds;
 import dagger.Module;
-import dagger.android.ActivityKey;
-import dagger.android.AndroidInjector;
-import dagger.multibindings.IntoMap;
+import dagger.android.ContributesAndroidInjector;
 
 @Module
 public abstract class ActivityBuilder {
 
-    @Binds
-    @IntoMap
-    @ActivityKey(MainActivity.class)
-    abstract AndroidInjector.Factory<? extends Activity> bindMainActivity(MainActivityComponent.Builder builder);
+    @ContributesAndroidInjector(modules = MainActivityModule.class)
+    abstract MainActivity bindMainActivity();
 
+    @ContributesAndroidInjector(modules = {SecondActivityModule.class, SecondFragmentProvider.class})
+    abstract SecondActivity bindSecondActivity();
 }

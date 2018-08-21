@@ -2,8 +2,6 @@ package com.example.atom.daggerinjection;
 
 import android.app.Application;
 
-import com.example.atom.daggerinjection.main.MainActivityModule;
-import com.example.atom.sample.DiDemoModule;
 
 import dagger.BindsInstance;
 import dagger.Component;
