@@ -28,6 +28,7 @@ public class DiDemoActivity extends AppCompatActivity {
     private void showHeroDefense() {
         hero.printDefense();
     }
+
 }
 
 

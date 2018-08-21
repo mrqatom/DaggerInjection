@@ -1,8 +1,5 @@
 package com.example.atom.sample;
 
-import com.example.atom.daggerinjection.main.MainActivity;
-import com.example.atom.daggerinjection.main.MainFragmentModule;
-
 import dagger.Subcomponent;
 import dagger.android.AndroidInjector;
 
@@ -11,7 +8,7 @@ import dagger.android.AndroidInjector;
  * @date 2018/8/17
  * @description
  */
-@Subcomponent(modules = MainFragmentModule.class)
+@Subcomponent
 public interface DiDemoComponent extends AndroidInjector<DiDemoActivity> {
     @Subcomponent.Builder
     public abstract class Builder extends AndroidInjector.Builder<DiDemoActivity> {

@@ -2,8 +2,11 @@ package com.example.atom.daggerinjection.main;
 
 import android.app.Activity;
 
+import com.example.atom.daggerinjection.data.ApiService;
+
 import dagger.Binds;
 import dagger.Module;
+import dagger.Provides;
 import dagger.android.ActivityKey;
 import dagger.android.AndroidInjector;
 import dagger.multibindings.IntoMap;
@@ -13,12 +16,14 @@ import dagger.multibindings.IntoMap;
  * @date 2018/8/17
  * @description
  */
-@Module(subcomponents = MainActivityComponent.class)
-public abstract class MainActivityModule {
-    @Binds
-    @IntoMap
-    @ActivityKey(MainActivity.class)
-    abstract AndroidInjector.Factory<? extends Activity>
-    bindMainActivityInjectorFactory(MainActivityComponent.Builder builder);
-
+@Module
+public class MainActivityModule {
+    @Provides
+    MainView provideMainView(MainActivity mainActivity){
+        return mainActivity;
+    }
+    @Provides
+    MainPresenter provideMainPresenter(MainView mainView, ApiService apiService) {
+        return new MainPresenter(mainView, apiService);
+    }
 }

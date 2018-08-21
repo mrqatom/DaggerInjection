@@ -7,6 +7,7 @@ import com.example.atom.sample.DiDemoModule;
 
 import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
@@ -17,10 +18,10 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(modules = {
         AndroidSupportInjectionModule.class,
         AppModule.class,
-        MainActivityModule.class,
-        DiDemoModule.class})
-public interface AppComponent {
+        ActivityBuilder.class})
+public interface AppComponent extends AndroidInjector<MyApplication> {
 
+    @Override
     void inject(MyApplication app);
 
     @Component.Builder
