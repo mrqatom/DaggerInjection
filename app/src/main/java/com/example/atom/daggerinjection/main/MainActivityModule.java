@@ -3,6 +3,7 @@ package com.example.atom.daggerinjection.main;
 import android.app.Activity;
 
 import com.example.atom.daggerinjection.data.ApiService;
+import com.example.atom.daggerinjection.main.fragment.MainFragmentComponent;
 
 import dagger.Binds;
 import dagger.Module;
@@ -16,7 +17,7 @@ import dagger.multibindings.IntoMap;
  * @date 2018/8/17
  * @description
  */
-@Module
+@Module(subcomponents = MainFragmentComponent.class,includes = MainFragmentProvider.class)
 public class MainActivityModule {
     @Provides
     MainView provideMainView(MainActivity mainActivity){
